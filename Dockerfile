@@ -1,4 +1,7 @@
 FROM openjdk:11
-ARG JAR_FILE=target/*.jar
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+MAINTAINER Renata and Marty <kurtu@group.lt>
+
+ENTRYPOINT ["java", "-jar", "/usr/share/myservice/myservice.jar"]
+
+ARG JAR_FILE
+ADD target/${JAR_FILE} /usr/share/myservice/myservice.jar
